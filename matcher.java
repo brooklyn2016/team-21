@@ -8,6 +8,9 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetEncoder;
+import java.nio.CharBuffer;
 
 public class matcher {
 	
@@ -21,7 +24,7 @@ public class matcher {
 		return data;
 	}
 	
-	final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
+	/*final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
 	public static String bytesToHex(byte[] bytes) {
 		char[] hexChars = new char[bytes.length * 2];
 		for ( int j = 0; j < bytes.length; j++ ) {
@@ -30,6 +33,49 @@ public class matcher {
 			hexChars[j * 2 + 1] = hexArray[v & 0x0F];
 		}
 		 return new String(hexChars);
+	}*/
+
+	public static String bytesToHex(byte[] bytes) {
+		StringBuilder hexStr = new StringBuilder(bytes.length);
+		int v; String hex;
+		for ( int j = 0; j < bytes.length; j++ ) {
+			v = bytes[j] & 0xFF; // get the byte
+			 //Get the last two bytes of the hex number
+			 hex = Integer.toHexString(0x100 | v).substring(1);
+			 hexStr.append(hex);
+		 }
+		 return hexStr.toString();
+	}
+	
+	public static int hexCharToInt(char c) {
+		if (c >= '0' && c <= '9')
+		{
+			    return c - '0';
+		}
+		if (c >= 'a' && c <= 'f')
+		{
+			    return c - 'a' + 10;
+		}
+		if (c >= 'A' && c <= 'F')
+		{
+			    return c - 'A' + 10;
+		}
+		return 0;
+	}
+
+	public static byte[] str_to_bb(String msg) {
+		byte[] arr = new byte[msg.length()/2 + 1];
+		int i = 0;
+		System.out.println(msg.length());
+		for(int j = 0; j < msg.length(); j+=2) {
+			//System.out.println(j);
+			int s = hexCharToInt(msg.charAt(j));
+			int p = hexCharToInt(msg.charAt(j+1));
+			//System.out.println(s + " " + p);
+			arr[i] = (byte)(16*s+p);
+			i++;
+		}
+		return arr;
 	}
 
 	public static byte[] serialize(Object obj) {
@@ -85,21 +131,26 @@ public class matcher {
 			}
 			System.out.println();
 		}*/
-		String wavFileName = args[3];
+		//System.out.println(args.length);
+		//System.out.println(Arrays.toString(args));
+		String wavFileName = args[1];
 		Wave inputWave = new Wave(new FileInputStream(new File(wavFileName)));				
-		switch(args[2]) {
+		switch(args[0]) {
 			case "getSimilarity":
-				String[] fingerPrints = args[4].split(",");
+				String[] fingerPrints = args[2].split(",");
 				int maxMatch = 0;
 				for(String s : fingerPrints) {
-					byte[] fp = hexStringToByteArray(s);
+					byte[] fp = str_to_bb(s);
+					//System.out.println(Arrays.toString(fp));
 					float match = getSimilarity(inputWave, fp);
 				}
 				System.out.println(maxMatch);
 				break;
 			case "getFingerPrint":
 				byte[] fp = inputWave.getFingerprint();
-				System.out.println(bytesToHex(fp));
+				System.out.println(Arrays.toString(fp));
+				//System.out.println(bytesToHex(fp));
+				//System.out.println(fp.length);
 				break;
 		}
 		

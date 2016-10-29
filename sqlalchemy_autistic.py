@@ -10,10 +10,13 @@ DBSession.bind = engine
 session = DBSession()
 
 def AddChild(name):
-    Child.insert().values(name=name)
+    newChild = Child(name=name)
+    session.add(newChild)
+    session.commit()
 
 def GetChildId(name):
-    return session.query(Child).filter(Child.name == name).one().id
+    print(session.query(Child).filter(Child.name == name).first().id)
+    return session.query(Child).filter(Child.name == name).first()
 
 def AddRecording(name, recording, meaning):
     srecrd = SoundRecordings(child_id=GetChildId(name), recording=recording, meaning=meaning)
@@ -27,4 +30,6 @@ def GetRecordings(name):
     for result in results:
         t.append((result.recording, result.meaning))
     return t
+AddChild('Amy')
+GetChildId('Amy')
 
