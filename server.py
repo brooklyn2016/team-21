@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import os
 import json
 
@@ -24,7 +24,7 @@ def hello_world():
 
 @app.route('/getRoster', methods=['GET'])
 def getRoster():
-    return flask.jsonify(**{'theList': roster})#json.dumps(roster)
+    return jsonify(**{'data': roster})#json.dumps(roster)
 
 @app.route('/meaning', methods=['GET', 'POST'])
 def meaning():
