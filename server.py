@@ -10,5 +10,5 @@ def hello_world():
 if __name__ == "__main__":
     if os.environ.get('FORCE_B_W_U') == 'None':
         app.run(debug=True)
-    else
+    else:
         app.run(host='0.0.0.0')
