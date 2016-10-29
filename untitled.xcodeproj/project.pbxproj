@@ -22,6 +22,7 @@
 		BF3FDF251DC416520095C4D8 /* ChildrenCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDF241DC416520095C4D8 /* ChildrenCollectionViewController.m */; };
 		BF3FDF281DC41B100095C4D8 /* ChildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDF271DC41B100095C4D8 /* ChildDetailViewController.m */; };
 		BF9CED0E1DC45D580031232F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9CED0D1DC45D580031232F /* AVFoundation.framework */; };
+		BF9CED111DC48DA40031232F /* CaretakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9CED101DC48DA40031232F /* CaretakerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		BF3FDF261DC41B100095C4D8 /* ChildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildDetailViewController.h; sourceTree = "<group>"; };
 		BF3FDF271DC41B100095C4D8 /* ChildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildDetailViewController.m; sourceTree = "<group>"; };
 		BF9CED0D1DC45D580031232F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BF9CED0F1DC48DA40031232F /* CaretakerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaretakerViewController.h; sourceTree = "<group>"; };
+		BF9CED101DC48DA40031232F /* CaretakerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaretakerViewController.m; sourceTree = "<group>"; };
 		F1C093FACBB346D3B334F949 /* Pods-untitledUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-untitledUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-untitledUITests/Pods-untitledUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FE2B112BE39C82D1ED5CE47A /* Pods-untitledTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-untitledTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-untitledTests/Pods-untitledTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +148,8 @@
 			children = (
 				BF3FDEF31DC412960095C4D8 /* AppDelegate.h */,
 				BF3FDEF41DC412960095C4D8 /* AppDelegate.m */,
+				BF9CED0F1DC48DA40031232F /* CaretakerViewController.h */,
+				BF9CED101DC48DA40031232F /* CaretakerViewController.m */,
 				BF3FDF231DC416520095C4D8 /* ChildrenCollectionViewController.h */,
 				BF3FDF241DC416520095C4D8 /* ChildrenCollectionViewController.m */,
 				BF26A3E81DC42A0E0058C57C /* ChildrenCollectionViewCell.h */,
@@ -481,6 +486,7 @@
 				BF26A3EE1DC43CE30058C57C /* HTTPClient.m in Sources */,
 				BF26A3EA1DC42A0E0058C57C /* ChildrenCollectionViewCell.m in Sources */,
 				BF3FDEF51DC412960095C4D8 /* AppDelegate.m in Sources */,
+				BF9CED111DC48DA40031232F /* CaretakerViewController.m in Sources */,
 				BF3FDEF21DC412960095C4D8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,4 +10,8 @@
 
 @interface CaretakerViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIImageView *profileImageView;
+@property (nonatomic, strong) IBOutlet UITextField *nameTextField;
+@property (nonatomic, strong) IBOutlet UIButton *nextButton;
+
 @end
