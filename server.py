@@ -24,7 +24,7 @@ def hello_world():
 
 @app.route('/getRoster', methods=['GET'])
 def getRoster():
-    return json.dumps(roster)
+    return flask.jsonify(**{'theList': roster})#json.dumps(roster)
 
 @app.route('/meaning', methods=['GET', 'POST'])
 def meaning():
