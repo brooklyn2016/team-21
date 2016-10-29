@@ -6,27 +6,68 @@ import com.musicg.wave.Wave;
 import com.musicg.fingerprint.*;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.io.*;
 
 public class matcher {
 	
-	public static float getSimilarity(Wave input, Fingerprint out) {
-		return 0;
+	public static byte[] hexStringToByteArray(String s) {
+		 int len = s.length();
+		 byte[] data = new byte[len / 2];
+		 for (int i = 0; i < len; i += 2) {
+			 data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+				 + Character.digit(s.charAt(i+1), 16));
+		 }
+		return data;
+	}
+	
+	final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
+	public static String bytesToHex(byte[] bytes) {
+		char[] hexChars = new char[bytes.length * 2];
+		for ( int j = 0; j < bytes.length; j++ ) {
+			int v = bytes[j] & 0xFF;
+			hexChars[j * 2] = hexArray[v >>> 4];
+			hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+		}
+		 return new String(hexChars);
+	}
+
+	public static byte[] serialize(Object obj) {
+		try(ByteArrayOutputStream b = new ByteArrayOutputStream()){
+			 try(ObjectOutputStream o = new ObjectOutputStream(b)){
+				o.writeObject(obj); 
+			 }
+			 return b.toByteArray();
+		 } catch(IOException ie) {
+			System.out.println(ie);
+		 }
+		return null;
+	}
+	
+	public static float getSimilarity(Wave input, byte[] out) {
+		byte[] inputFingerprint = input.getFingerprint();	
+		float match = new FingerprintSimilarityComputer(inputFingerprint,
+			out).getFingerprintsSimilarity().getSimilarity();
+
+		return match;
 	}
 
 	public static float getSimilarity(FileInputStream f1, FileInputStream f2) {
 		Wave r1 = new Wave(f1); Wave r2 = new Wave(f2);
+		System.out.println(serialize(r1.getFingerprint()).length);
+		System.out.println(serialize(r2.getFingerprint()).length);
 		FingerprintSimilarity Similarity = r1.getFingerprintSimilarity(r2);
 		return Similarity.getSimilarity();
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
-		Scanner in = new Scanner(System.in);
+		/*Scanner in = new Scanner(System.in);
 		String path = "./Sample Recordings/";
 		/*System.out.println("Enter file1: ");
 		String file1 = in.nextLine();
 		System.out.println("Enter file2: ");
 		String file2 = in.nextLine();
-		in.close();*/
+		in.close();
 
 		File folder = new File(path);
 		File[] listOfFiles = folder.listFiles();
@@ -43,6 +84,23 @@ public class matcher {
 
 			}
 			System.out.println();
+		}*/
+		String wavFileName = args[3];
+		Wave inputWave = new Wave(new FileInputStream(new File(wavFileName)));				
+		switch(args[2]) {
+			case "getSimilarity":
+				String[] fingerPrints = args[4].split(",");
+				int maxMatch = 0;
+				for(String s : fingerPrints) {
+					byte[] fp = hexStringToByteArray(s);
+					float match = getSimilarity(inputWave, fp);
+				}
+				System.out.println(maxMatch);
+				break;
+			case "getFingerPrint":
+				byte[] fp = inputWave.getFingerprint();
+				System.out.println(bytesToHex(fp));
+				break;
 		}
 		
 	}
