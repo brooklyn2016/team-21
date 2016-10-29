@@ -4,17 +4,22 @@ import json
 
 app = Flask(__name__)
 
+#I propose this terrible list
+#it will be our "database"
+theList = []
+
 @app.route('/')
 def hello_world():
     return ':p'
 
 @app.route('/getRoster', methods=['GET'])
 def getRoster():
-    return json.dumps(["John", "Joe", "Jill", "Jane"])
+    return json.dumps(theList)
 
 @app.route('/meaning', methods=['GET', 'POST'])
 def meaning():
     if request.method == 'POST':
+        theList.append("banana fest")
         return "This means: Apple"
     else:
         return "Meaning uploaded!! :D"
