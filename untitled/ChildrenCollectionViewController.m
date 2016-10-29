@@ -6,19 +6,22 @@
 //  Copyright © 2016 team21. All rights reserved.
 //
 
-#import "ChildrenTableViewController.h"
+#import "ChildrenCollectionViewController.h"
 #import "ChildDetailViewController.h"
+#import "ChildrenCollectionViewCell.h"
 
-@interface ChildrenTableViewController ()
+@interface ChildrenCollectionViewController ()
 
 @property (nonatomic, strong) NSMutableArray *children;
 
 @end
 
-@implementation ChildrenTableViewController
+@implementation ChildrenCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.collectionView.backgroundColor = [UIColor grayColor];
     
     self.children = [NSMutableArray arrayWithObjects:@[@"Person1", @30], @[@"Person2", @12], @[@"Person3", @11],@[@"Person4", @6] , nil];
     
@@ -31,45 +34,59 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Collection view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.children.count;
 }
 
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellIdentifier = @"infoCell";
+    ChildrenCollectionViewCell *cell = (ChildrenCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellIdentifer = @"CellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
-    }
-    
-    // Configure the cell...
-    
-    cell.textLabel.text = self.children[indexPath.row][0];
-    
+    cell.nameLabel.text = self.children[indexPath.row][0];
+    NSLog(@"%@", self.children[indexPath.row][0]);
+    NSLog(@"%@", cell.nameLabel);
+    cell.layer.borderWidth = 1;
+    cell.backgroundColor = [UIColor lightGrayColor];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"DetailSegue" sender:_children[indexPath.row]];
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"DetailSegue"]) {
         ChildDetailViewController *detailVC = (ChildDetailViewController *)segue.destinationViewController;
-        detailVC.childInfo =  (NSArray *)sender;
+        detailVC.childInfo =  (NSMutableArray *)sender;
     }
+}
+
+#pragma mark - Collection view flow layout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.view.frame.size.width/2, self.view.frame.size.width/2);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*) collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*) collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0.0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0.0;
 }
 
 - (NSMutableArray *)children {

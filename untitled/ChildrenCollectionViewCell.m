@@ -1,13 +1,13 @@
 //
-//  ChildrenTableViewController.h
+//  ChildrenCollectionViewCell.m
 //  untitled
 //
 //  Created by Benjamin Yi on 10/28/16.
 //  Copyright © 2016 team21. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ChildrenCollectionViewCell.h"
 
-@interface ChildrenTableViewController : UITableViewController
+@implementation ChildrenCollectionViewCell
 
 @end
