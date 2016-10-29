@@ -12,7 +12,8 @@
 @interface ChildDetailViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
-@property (nonatomic, strong) NSMutableArray *childInfo;
+@property (nonatomic, strong) NSDictionary *childInfo;
+@property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) IBOutlet UIButton *recordButton;
 
 @end

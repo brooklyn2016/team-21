@@ -11,5 +11,6 @@
 @interface ChildrenCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *imageView;
 
 @end

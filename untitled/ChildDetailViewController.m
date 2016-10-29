@@ -19,9 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.nameLabel.text = self.childInfo[0];
+
     // Do any additional setup after loading the view.
-    
+    self.nameLabel.text = self.childInfo[@"name"];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.childInfo[@"img"]]];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            self.imageView.image = [UIImage imageWithData:imageData];
+        });
+    });
     
     // Set the audio file
     NSArray *pathComponents = [NSArray arrayWithObjects:

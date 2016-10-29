@@ -23,33 +23,25 @@ static NSString *ROOT_URL = @"http://ec2-107-20-15-98.compute-1.amazonaws.com:50
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.children = [NSMutableArray array];
     self.collectionView.backgroundColor = [UIColor grayColor];
-    
-    self.children = [NSMutableArray arrayWithObjects:@[@"Person1", @30], @[@"Person2", @12], @[@"Person3", @11],@[@"Person4", @6] , nil];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
     [self getChildrenRoster];
 }
 
 - (void)getChildrenRoster {
-    
     NSString *url_string = [NSString stringWithFormat:@"%@/getRoster", ROOT_URL];
-    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-
     [manager GET:url_string parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        id responseData = [NSJSONSerialization JSONObjectWithData:responseObject
-                                                       options:NSJSONReadingMutableContainers
-                                                         error:nil];
-        NSLog(@"%@", responseData);
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            for(NSArray *child in (NSDictionary *)responseObject[@"data"]) {
+                [self.children addObject:child];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                [self.collectionView reloadData];
+            });
+        });
     }failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@",error);
     }];
@@ -73,9 +65,19 @@ static NSString *ROOT_URL = @"http://ec2-107-20-15-98.compute-1.amazonaws.com:50
     NSString *cellIdentifier = @"infoCell";
     ChildrenCollectionViewCell *cell = (ChildrenCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
-    cell.nameLabel.text = self.children[indexPath.row][0];
+    cell.nameLabel.text = self.children[indexPath.row][@"name"];
+    cell.nameLabel.backgroundColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.3];
+    cell.nameLabel.textColor = [UIColor whiteColor];
     cell.layer.borderWidth = 1;
     cell.backgroundColor = [UIColor lightGrayColor];
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.children[indexPath.row][@"img"]]];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            cell.imageView.image = [UIImage imageWithData:imageData];
+        });
+    });
+    
     return cell;
 }
 
@@ -108,13 +110,6 @@ static NSString *ROOT_URL = @"http://ec2-107-20-15-98.compute-1.amazonaws.com:50
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
     return 0.0;
-}
-
-- (NSMutableArray *)children {
-    if (!_children) {
-        _children = [[NSMutableArray alloc] init];
-    }
-    return _children;
 }
 
 /*
