@@ -95,7 +95,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ModalSegue"]) {
         _wordRetrieverVC = (ModalWordRetriever *)segue.destinationViewController;
-        _wordRetrieverVC.player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:nil];
+        _wordRetrieverVC.player = _player;
+        _wordRetrieverVC.recorder = _recorder;
+        _wordRetrieverVC.childInfo = _childInfo;
     }
 }
 
