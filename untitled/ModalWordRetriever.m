@@ -15,6 +15,17 @@
     self.addButton.layer.cornerRadius = 4.0;
     self.addButton.layer.masksToBounds = YES;
     self.addButton.layer.borderWidth = 1.0;
+    self.addButton.enabled = NO;
+    //    url_string = [NSString stringWithFormat:@"%@/meaning", ROOT_URL];
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    //    NSDictionary *new = @{@"name" : @"test_name", @"audio" :@"test_audio", @"meaning" :@{}};
+    //
+    //    [manager POST:url_string parameters:new progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    //        NSLog(@"%@", responseObject);
+    //        }failure:^(NSURLSessionTask *operation, NSError *error) {
+    //        NSLog(@"Error: %@",error);
+    //    }];
 }
 
 - (IBAction)playStop:(id)sender {
