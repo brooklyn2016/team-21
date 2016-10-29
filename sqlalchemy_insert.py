@@ -31,21 +31,6 @@ new_child = Child(name='Harry')
 session.add(new_child)
 session.commit()
 
-new_sndRcrd = SoundRecordings(child_id=1, recording=pack('H', 365))
-session.add(new_sndRcrd)
-
-new_sndRcrd = SoundRecordings(child_id=2, recording=pack('H', 210))
-session.add(new_sndRcrd)
-
-new_sndRcrd = SoundRecordings(child_id=1, recording=pack('H', 212))
-session.add(new_sndRcrd)
-
-new_sndRcrd = SoundRecordings(child_id=3, recording=pack('H', 100))
-session.add(new_sndRcrd)
-
-new_sndRcrd = SoundRecordings(child_id=2, recording=pack('H', 89))
-session.add(new_sndRcrd)
-
 session.commit()
 
 

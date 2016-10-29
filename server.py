@@ -1,11 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, abort
 import os
 import json
+import hashlib
 
 app = Flask(__name__)
 
 #I propose this terrible list
-#it will be our "database"
+#it will be our temp 
 theList = []
 roster = [
         {'name': "Kate", 'img': "http://www.cdc.gov/ncbddd/autism/images/autism-facts-graphic2.jpg"},
@@ -30,13 +31,35 @@ def hello_world():
 def getRoster():
     return send_json(roster)#json.dumps(roster)
 
+
+#This is where the work is at
 @app.route('/meaning', methods=['GET', 'POST'])
 def meaning():
     if request.method == 'POST':
-        theList.append("banana fest")
-        return "This means: Apple"
+        #grab name, audio, meaning
+        name=request.form['name']
+        audio_id=request.form['audio_id']
+        meaning=request.form['meaning']
+        audio=[entry in theList if entry['hash'] == audio_id][0]
+        AddRecoding(name, audio, meaning)
+        #theList.append("banana fest")
+        return send_json("success!")
     else:
-        return "Meaning uploaded!! :D"
+        #grab name, audio
+        name = request.args['name']
+        audio = request.args['audio']
+        meaning=""
+        recordings = GetRecordings(name)
+        for each recording in recordings:
+            if audio == recording[0]:
+                meaning = recording[1]
+                break
+        else:
+            hashmd5=hashlib.md5(audio).hexdigest()
+            theList.append({'hash':hashmd5,'audio':audio})
+            #return this is BS
+            abort('400', send_json(hashmd5))
+        return send_json(meaning)
 
 if __name__ == "__main__":
     if os.environ.get('FORCE_B_W_U') == 'None':
