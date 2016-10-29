@@ -100,7 +100,7 @@ static NSString *ROOT_URL = @"http://ec2-107-20-15-98.compute-1.amazonaws.com:50
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"DetailSegue"]) {
         ChildDetailViewController *detailVC = (ChildDetailViewController *)segue.destinationViewController;
-        detailVC.childInfo =  (NSMutableArray *)sender;
+        detailVC.childInfo =  (NSMutableDictionary *)sender;
     }
 }
 

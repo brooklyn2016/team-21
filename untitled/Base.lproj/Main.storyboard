@@ -240,23 +240,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqb-2b-AKb">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SJ4-62-dz6">
-                                        <rect key="frame" x="187" y="75" width="225" height="225"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="SJ4-62-dz6" secondAttribute="height" id="0su-gp-pzH"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="SJ4-62-dz6" firstAttribute="height" secondItem="Hqb-2b-AKb" secondAttribute="height" multiplier="3:4" id="7re-4O-Lt8"/>
-                                    <constraint firstAttribute="bottom" secondItem="SJ4-62-dz6" secondAttribute="bottom" id="BYw-fL-40k"/>
-                                    <constraint firstItem="SJ4-62-dz6" firstAttribute="centerX" secondItem="Hqb-2b-AKb" secondAttribute="centerX" id="fcm-Ay-nZ5"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFj-x6-Omt">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -267,6 +250,7 @@
                                     <color key="titleColor" red="0.9959825873374939" green="0.99621325731277466" blue="0.99187678098678589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="finishRegistration:" destination="TTD-u7-A9Z" eventType="touchUpInside" id="EF7-1z-eeg"/>
                                     <segue destination="e2d-Sm-AKX" kind="show" identifier="PushSegue" id="q7V-xE-qhx"/>
                                 </connections>
                             </button>
@@ -287,6 +271,23 @@
                                     <constraint firstItem="bUZ-G0-a8n" firstAttribute="width" secondItem="p65-bE-4Eo" secondAttribute="width" multiplier="3:4" id="7LE-Tl-38f"/>
                                     <constraint firstItem="bUZ-G0-a8n" firstAttribute="centerY" secondItem="p65-bE-4Eo" secondAttribute="centerY" id="S4y-eG-BpD"/>
                                     <constraint firstItem="bUZ-G0-a8n" firstAttribute="centerX" secondItem="p65-bE-4Eo" secondAttribute="centerX" id="bfr-M4-aET"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqb-2b-AKb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SJ4-62-dz6">
+                                        <rect key="frame" x="187" y="75" width="225" height="225"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="SJ4-62-dz6" secondAttribute="height" id="0su-gp-pzH"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="SJ4-62-dz6" firstAttribute="height" secondItem="Hqb-2b-AKb" secondAttribute="height" multiplier="3:4" id="7re-4O-Lt8"/>
+                                    <constraint firstAttribute="bottom" secondItem="SJ4-62-dz6" secondAttribute="bottom" id="BYw-fL-40k"/>
+                                    <constraint firstItem="SJ4-62-dz6" firstAttribute="centerX" secondItem="Hqb-2b-AKb" secondAttribute="centerX" id="fcm-Ay-nZ5"/>
                                 </constraints>
                             </view>
                         </subviews>

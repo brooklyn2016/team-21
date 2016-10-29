@@ -10,4 +10,12 @@
 
 @implementation CaretakerViewController
 
+- (IBAction)finishRegistration:(id)sender {
+    [self performSegueWithIdentifier:@"PushSegue" sender:self.nextButton];
+}
+
+- (void)performSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+}
+
 @end
