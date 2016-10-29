@@ -37,9 +37,13 @@ def getRoster():
 def meaning():
     if request.method == 'POST':
         #grab name, audio, meaning
-        #addRecoding(name, audio.getFingerprint(), meaning)
-        theList.append("banana fest")
-        return "This means: Apple"
+        name=request.form['name']
+        audio_id=request.form['audio_id']
+        meaning=request.form['meaning']
+        audio=[entry in theList if entry['hash'] == audio_id][0]
+        AddRecoding(name, audio, meaning)
+        #theList.append("banana fest")
+        return send_json("success!")
     else:
         #grab name, audio
         name = request.args['name']
