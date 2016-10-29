@@ -17,8 +17,7 @@ def getWord(audioFileName, recordings):
 
     p1 = subprocess.Popen(["/usr/bin/java", "matcher", "getSimilarity", audioFileName+".wav", hexStr], stdout=subprocess.PIPE)
     output = p1.stdout.read()
-    
-    return output
+    return recordings[int(output)][0]
 
 def getFingerPrint(audioFileName):
     convAudio(audioFileName)
@@ -27,6 +26,3 @@ def getFingerPrint(audioFileName):
 
 
     return bytearray(output)
-
-
-convAudio("appa")
