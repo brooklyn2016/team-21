@@ -13,6 +13,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationItem setHidesBackButton:true];
+    self.navigationItem.title = @"Add Student";
 }
 
 - (IBAction)finishAdd:(id)sender {
