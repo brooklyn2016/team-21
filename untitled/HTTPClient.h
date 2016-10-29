@@ -8,6 +8,12 @@
 
 #import <AFNetworking/AFHTTPSessionManager.h>
 
+@protocol  HTTPClientDelegate;
+
 @interface HTTPClient : AFHTTPSessionManager
+@property (nonatomic, weak) id<HTTPClientDelegate>delegate;
+
++ (HTTPClient *)sharedHTTPClient;
+- (instancetype)initWithRoot:(NSURL *)root;
 
 @end

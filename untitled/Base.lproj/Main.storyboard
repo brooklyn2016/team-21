@@ -3,7 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Child Detail View Controller-->
@@ -18,17 +20,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z40-t5-Lzj">
-                                <rect key="frame" x="27" y="89" width="184" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPn-q4-1pe">
+                                <rect key="frame" x="0.0" y="64" width="600" height="300"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic_image" translatesAutoresizingMaskIntoConstraints="NO" id="eWn-K0-AEe">
+                                        <rect key="frame" x="170" y="20" width="260" height="260"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="eWn-K0-AEe" secondAttribute="height" id="hur-v1-hH3"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eWn-K0-AEe" firstAttribute="centerY" secondItem="nPn-q4-1pe" secondAttribute="centerY" id="GTX-tX-sMh"/>
+                                    <constraint firstItem="eWn-K0-AEe" firstAttribute="top" secondItem="nPn-q4-1pe" secondAttribute="top" constant="20" id="S1N-Sq-L0F"/>
+                                    <constraint firstItem="eWn-K0-AEe" firstAttribute="centerX" secondItem="nPn-q4-1pe" secondAttribute="centerX" id="s86-EB-WPz"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULM-IL-m6q">
+                                <rect key="frame" x="0.0" y="364" width="600" height="256"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6o-Ue-guZ">
+                                        <rect key="frame" x="260" y="40" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="9uH-Zb-dtR"/>
+                                            <constraint firstAttribute="width" constant="80" id="SEL-X4-6Rf"/>
+                                        </constraints>
+                                        <state key="normal" title="Don't."/>
+                                        <connections>
+                                            <action selector="recordStop:" destination="FHs-L8-Rye" eventType="touchUpInside" id="gMH-ta-LAx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="G6o-Ue-guZ" firstAttribute="centerX" secondItem="ULM-IL-m6q" secondAttribute="centerX" id="Irf-Yc-bAK"/>
+                                    <constraint firstItem="G6o-Ue-guZ" firstAttribute="top" secondItem="ULM-IL-m6q" secondAttribute="top" constant="40" id="TIz-PZ-aAG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ULM-IL-m6q" firstAttribute="top" secondItem="nPn-q4-1pe" secondAttribute="bottom" id="4yd-6e-D9V"/>
+                            <constraint firstItem="ULM-IL-m6q" firstAttribute="leading" secondItem="A44-9Q-eNt" secondAttribute="leadingMargin" constant="-20" id="L4o-62-min"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ULM-IL-m6q" secondAttribute="trailing" constant="-20" id="Nwr-40-eg4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nPn-q4-1pe" secondAttribute="trailing" constant="-20" id="VYr-R1-cXU"/>
+                            <constraint firstItem="nPn-q4-1pe" firstAttribute="leading" secondItem="A44-9Q-eNt" secondAttribute="leadingMargin" constant="-20" id="bNv-Dz-jUC"/>
+                            <constraint firstItem="N09-MC-nx7" firstAttribute="top" secondItem="ULM-IL-m6q" secondAttribute="bottom" constant="-20" id="mUX-1y-fwS"/>
+                            <constraint firstItem="nPn-q4-1pe" firstAttribute="height" secondItem="A44-9Q-eNt" secondAttribute="height" multiplier="1:2" id="s5S-EZ-q3n"/>
+                            <constraint firstItem="nPn-q4-1pe" firstAttribute="top" secondItem="MxY-qR-HsT" secondAttribute="bottom" id="twq-p0-tIr"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="nameLabel" destination="z40-t5-Lzj" id="svP-vL-OFb"/>
+                        <outlet property="recordButton" destination="G6o-Ue-guZ" id="l7L-ht-zfw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3g-BJ-eWl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -59,7 +103,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVM-hi-Ytd">
                                             <rect key="frame" x="8" y="8" width="34" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -109,4 +153,7 @@
             <point key="canvasLocation" x="922" y="239"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mic_image" width="300" height="300"/>
+    </resources>
 </document>

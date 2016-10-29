@@ -21,6 +21,7 @@
 		BF3FDF161DC412960095C4D8 /* untitledUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDF151DC412960095C4D8 /* untitledUITests.m */; };
 		BF3FDF251DC416520095C4D8 /* ChildrenCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDF241DC416520095C4D8 /* ChildrenCollectionViewController.m */; };
 		BF3FDF281DC41B100095C4D8 /* ChildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDF271DC41B100095C4D8 /* ChildDetailViewController.m */; };
+		BF9CED0E1DC45D580031232F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9CED0D1DC45D580031232F /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		BF3FDF241DC416520095C4D8 /* ChildrenCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildrenCollectionViewController.m; sourceTree = "<group>"; };
 		BF3FDF261DC41B100095C4D8 /* ChildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildDetailViewController.h; sourceTree = "<group>"; };
 		BF3FDF271DC41B100095C4D8 /* ChildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildDetailViewController.m; sourceTree = "<group>"; };
+		BF9CED0D1DC45D580031232F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F1C093FACBB346D3B334F949 /* Pods-untitledUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-untitledUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-untitledUITests/Pods-untitledUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FE2B112BE39C82D1ED5CE47A /* Pods-untitledTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-untitledTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-untitledTests/Pods-untitledTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF9CED0E1DC45D580031232F /* AVFoundation.framework in Frameworks */,
 				A7DF25C332E50384E065917A /* libPods-untitled.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +191,7 @@
 		EE660AE12F2A5C492C697E26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF9CED0D1DC45D580031232F /* AVFoundation.framework */,
 				7E28C645030416E0DF1DDBB7 /* libPods-untitled.a */,
 				70ADAE8F41E1CC94AB573DA8 /* libPods-untitledTests.a */,
 				872EAEE34A3D7C530F6FA4DF /* libPods-untitledUITests.a */,

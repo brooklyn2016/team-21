@@ -9,9 +9,9 @@
 #import "ChildrenCollectionViewController.h"
 #import "ChildDetailViewController.h"
 #import "ChildrenCollectionViewCell.h"
-#import "AFNetworking/AFNetworking.h"
+#import <AFNetworking/AFHTTPSessionManager.h>
 
-static NSString *ROOT_URL = @"ec2-107-20-15-98.compute-1.amazonaws.com:5000/";
+static NSString *ROOT_URL = @"http://ec2-107-20-15-98.compute-1.amazonaws.com:5000";
 
 @interface ChildrenCollectionViewController ()
 
@@ -33,15 +33,26 @@ static NSString *ROOT_URL = @"ec2-107-20-15-98.compute-1.amazonaws.com:5000/";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self getChildrenRoster];
 }
 
 - (void)getChildrenRoster {
-    NSString *url_string = @"https://www.reddit.com/.json";
-    NSURL *url = [NSURL URLWithString:url_string];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
+    NSString *url_string = [NSString stringWithFormat:@"%@/getRoster", ROOT_URL];
     
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
 
+    [manager GET:url_string parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        id responseData = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                       options:NSJSONReadingMutableContainers
+                                                         error:nil];
+        NSLog(@"%@", responseData);
+    }failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@",error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,8 +74,6 @@ static NSString *ROOT_URL = @"ec2-107-20-15-98.compute-1.amazonaws.com:5000/";
     ChildrenCollectionViewCell *cell = (ChildrenCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 
     cell.nameLabel.text = self.children[indexPath.row][0];
-    NSLog(@"%@", self.children[indexPath.row][0]);
-    NSLog(@"%@", cell.nameLabel);
     cell.layer.borderWidth = 1;
     cell.backgroundColor = [UIColor lightGrayColor];
     return cell;
