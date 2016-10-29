@@ -12,7 +12,9 @@
 
 @interface ModalWordRetriever : UIViewController <AVAudioPlayerDelegate>
 
+@property (nonatomic, strong) IBOutlet UIButton *addButton;
 @property (nonatomic, strong) IBOutlet UIButton *playButton;
+@property (nonatomic, strong) IBOutlet UIButton *closeButton;
 @property (nonatomic, strong) UILabel *meaningLabel;
 @property (nonatomic, strong) UIButton *addWordButton;
 @property (nonatomic, strong) AVAudioPlayer *player;
