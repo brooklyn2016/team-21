@@ -42,7 +42,7 @@ def meaning():
         name=request.form['name']
         audio_id=request.form['audio_id']
         meaning=request.form['meaning']
-        audio=[entry in theList if entry['hash'] == audio_id][0]
+        audio=[entry for entry in theList if entry['hash'] == audio_id][0]
 
 
         AddRecoding(name, getFingerPrint(audio), meaning)
