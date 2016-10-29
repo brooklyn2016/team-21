@@ -11,3 +11,6 @@ _mailinglist
 .tox
 .cache/
 .idea/
+*.swp
+*.pem
+*.ppk
