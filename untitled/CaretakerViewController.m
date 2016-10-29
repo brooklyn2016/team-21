@@ -12,12 +12,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Device has no camera" preferredStyle:UIAlertControllerStyleAlert];
-//        
-//        [self presentViewController:alert animated:YES completion:nil];
-//    }
+    [self setupNavigationBar];
+}
+
+- (void)setupNavigationBar {
+    self.navigationItem.title = @"Caretaker Registration";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
 - (IBAction)finishRegistration:(id)sender {
