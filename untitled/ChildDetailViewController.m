@@ -21,7 +21,7 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
-    self.nameLabel.text = self.childInfo[@"name"];
+    self.navigationItem.title = self.childInfo[@"name"];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.childInfo[@"img"]]];
         dispatch_async(dispatch_get_main_queue(), ^(void){
