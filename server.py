@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify, abort
 import os
 import json
 import hashlib
+from matcherCaller import getWord, getFingerPrint
+from sqlalchemy_autistic import AddRecording, GetRecordings
 
 app = Flask(__name__)
 
@@ -40,25 +42,34 @@ def meaning():
         name=request.form['name']
         audio_id=request.form['audio_id']
         meaning=request.form['meaning']
-        audio=[entry in theList if entry['hash'] == audio_id][0]
-        AddRecoding(name, audio, meaning)
+        audio=[entry for entry in theList if entry['hash'] == audio_id][0]
+
+        AddRecording(name, getFingerPrint(audio), meaning)
         #theList.append("banana fest")
         return send_json("success!")
     else:
         #grab name, audio
-        name = request.args['name']
-        audio = request.args['audio']
+        
+        name = request.args.get('name')
+        print(':p')
+        audio = request.files['audio']
+        
+        audio_name = audio.filename
+        
         meaning=""
         recordings = GetRecordings(name)
-        for each recording in recordings:
-            if audio == recording[0]:
-                meaning = recording[1]
-                break
+
+        audio.save(audio_name)
+
+        word = getWord(audio_name, recordings)
+        
+        if word != 'None':
+            meaning=word
         else:
             hashmd5=hashlib.md5(audio).hexdigest()
-            theList.append({'hash':hashmd5,'audio':audio})
+            theList.append({'hash':hashmd5,'audio':audio_name})
             #return this is BS
-            abort('400', send_json(hashmd5))
+            #abort('400', send_json(hashmd5))
         return send_json(meaning)
 
 if __name__ == "__main__":
