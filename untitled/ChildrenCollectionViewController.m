@@ -25,6 +25,7 @@ static NSString *ROOT_URL = @"http://ec2-107-20-15-98.compute-1.amazonaws.com:50
     [super viewDidLoad];
     self.children = [NSMutableArray array];
     self.collectionView.backgroundColor = [UIColor grayColor];
+    [self.navigationItem setHidesBackButton:true];
 
     [self getChildrenRoster];
 }
