@@ -9,6 +9,9 @@
 #import "ChildrenCollectionViewController.h"
 #import "ChildDetailViewController.h"
 #import "ChildrenCollectionViewCell.h"
+#import "AFNetworking/AFNetworking.h"
+
+static NSString *ROOT_URL = @"ec2-107-20-15-98.compute-1.amazonaws.com:5000/";
 
 @interface ChildrenCollectionViewController ()
 
@@ -30,6 +33,15 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)getChildrenRoster {
+    NSString *url_string = @"https://www.reddit.com/.json";
+    NSURL *url = [NSURL URLWithString:url_string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    
+
 }
 
 - (void)didReceiveMemoryWarning {

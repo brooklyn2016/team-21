@@ -35,21 +35,6 @@
             </objects>
             <point key="canvasLocation" x="2483" y="293"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="a2n-fG-zhl">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vg3-Nn-hud" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wcq-3e-zTz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uEN-yk-omC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="197" y="293"/>
-        </scene>
         <!--Children Collection View Controller-->
         <scene sceneID="P9m-ot-6j5">
             <objects>
