@@ -309,13 +309,14 @@
                     <navigationItem key="navigationItem" id="bJc-Rz-nOs"/>
                     <connections>
                         <outlet property="nameTextField" destination="bUZ-G0-a8n" id="grq-80-Eeb"/>
+                        <outlet property="nextButton" destination="rFj-x6-Omt" id="atb-1c-ogp"/>
                         <outlet property="profileImageView" destination="SJ4-62-dz6" id="R1F-JV-7R9"/>
                         <outlet property="view" destination="rFj-x6-Omt" id="lFU-Bh-gmz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUW-NU-RWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="282"/>
+            <point key="canvasLocation" x="857" y="271"/>
         </scene>
     </scenes>
     <resources>
