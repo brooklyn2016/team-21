@@ -49,7 +49,7 @@ static NSString *ROOT_URL = @"http://ec2-107-20-15-98.compute-1.amazonaws.com:50
 //    url_string = [NSString stringWithFormat:@"%@/meaning", ROOT_URL];
 //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
 //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    NSDictionary *new = @{@"name" : @"test_name", @"audio" :@"test_audio"};
+//    NSDictionary *new = @{@"name" : @"test_name", @"audio" :@"test_audio", @"meaning" :@{}};
 //    
 //    [manager POST:url_string parameters:new progress:nil success:^(NSURLSessionTask *task, id responseObject) {
 //        NSLog(@"%@", responseObject);

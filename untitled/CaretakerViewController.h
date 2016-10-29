@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CaretakerViewController : UIViewController
+@interface CaretakerViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (nonatomic, strong) IBOutlet UIImageView *profileImageView;
+@property (nonatomic, strong) IBOutlet UIButton *cameraButton;
 @property (nonatomic, strong) IBOutlet UITextField *nameTextField;
 @property (nonatomic, strong) IBOutlet UIButton *nextButton;
 

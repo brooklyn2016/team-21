@@ -255,10 +255,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p65-bE-4Eo">
-                                <rect key="frame" x="0.0" y="300" width="600" height="250"/>
+                                <rect key="frame" x="0.0" y="364" width="600" height="186"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bUZ-G0-a8n">
-                                        <rect key="frame" x="75" y="100" width="450" height="50"/>
+                                        <rect key="frame" x="75" y="68" width="450" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="NYQ-oD-NPh"/>
                                         </constraints>
@@ -274,20 +274,24 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqb-2b-AKb">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="300"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SJ4-62-dz6">
-                                        <rect key="frame" x="187" y="75" width="225" height="225"/>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dn3-O8-AhL">
+                                        <rect key="frame" x="188" y="75" width="225" height="225"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="SJ4-62-dz6" secondAttribute="height" id="0su-gp-pzH"/>
+                                            <constraint firstAttribute="width" secondItem="dn3-O8-AhL" secondAttribute="height" id="AWk-Hk-XLV"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" backgroundImage="profile-image-placeholder"/>
+                                        <connections>
+                                            <action selector="selectPhoto:" destination="TTD-u7-A9Z" eventType="touchUpInside" id="Ilu-QG-sI2"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="SJ4-62-dz6" firstAttribute="height" secondItem="Hqb-2b-AKb" secondAttribute="height" multiplier="3:4" id="7re-4O-Lt8"/>
-                                    <constraint firstAttribute="bottom" secondItem="SJ4-62-dz6" secondAttribute="bottom" id="BYw-fL-40k"/>
-                                    <constraint firstItem="SJ4-62-dz6" firstAttribute="centerX" secondItem="Hqb-2b-AKb" secondAttribute="centerX" id="fcm-Ay-nZ5"/>
+                                    <constraint firstItem="dn3-O8-AhL" firstAttribute="height" secondItem="Hqb-2b-AKb" secondAttribute="height" multiplier="3:4" id="ZT1-i0-Odq"/>
+                                    <constraint firstAttribute="bottom" secondItem="dn3-O8-AhL" secondAttribute="bottom" id="Zm5-7D-fBB"/>
+                                    <constraint firstItem="dn3-O8-AhL" firstAttribute="centerX" secondItem="Hqb-2b-AKb" secondAttribute="centerX" id="eGm-Ti-hV3"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -302,16 +306,21 @@
                             <constraint firstItem="Hqb-2b-AKb" firstAttribute="height" secondItem="i8V-yh-b7e" secondAttribute="height" multiplier="1:2" id="huu-MS-I4t"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p65-bE-4Eo" secondAttribute="trailing" constant="-20" id="iKI-5x-cfm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rFj-x6-Omt" secondAttribute="trailing" constant="-20" id="nEz-pb-bvM"/>
+                            <constraint firstItem="Hqb-2b-AKb" firstAttribute="top" secondItem="Oq6-e7-KUB" secondAttribute="bottom" id="o5n-9s-4zM"/>
                             <constraint firstItem="gTk-fp-yWE" firstAttribute="top" secondItem="rFj-x6-Omt" secondAttribute="bottom" id="q6n-uT-Qn1"/>
                             <constraint firstItem="rFj-x6-Omt" firstAttribute="leading" secondItem="i8V-yh-b7e" secondAttribute="leadingMargin" constant="-20" id="qe0-Ag-C3p"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YPB-jG-E2A"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="bJc-Rz-nOs"/>
                     <connections>
+                        <outlet property="cameraButton" destination="dn3-O8-AhL" id="FgT-gG-RDK"/>
                         <outlet property="nameTextField" destination="bUZ-G0-a8n" id="grq-80-Eeb"/>
                         <outlet property="nextButton" destination="rFj-x6-Omt" id="atb-1c-ogp"/>
-                        <outlet property="profileImageView" destination="SJ4-62-dz6" id="R1F-JV-7R9"/>
-                        <outlet property="view" destination="rFj-x6-Omt" id="lFU-Bh-gmz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUW-NU-RWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,5 +330,6 @@
     </scenes>
     <resources>
         <image name="mic_image" width="300" height="300"/>
+        <image name="profile-image-placeholder" width="500" height="500"/>
     </resources>
 </document>
