@@ -11,7 +11,6 @@
 		A7DF25C332E50384E065917A /* libPods-untitled.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E28C645030416E0DF1DDBB7 /* libPods-untitled.a */; };
 		B55D6698864A908EC62424E5 /* libPods-untitledUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 872EAEE34A3D7C530F6FA4DF /* libPods-untitledUITests.a */; };
 		BF26A3EA1DC42A0E0058C57C /* ChildrenCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF26A3E91DC42A0E0058C57C /* ChildrenCollectionViewCell.m */; };
-		BF26A3EE1DC43CE30058C57C /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF26A3ED1DC43CE30058C57C /* HTTPClient.m */; };
 		BF3FDEF21DC412960095C4D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDEF11DC412960095C4D8 /* main.m */; };
 		BF3FDEF51DC412960095C4D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDEF41DC412960095C4D8 /* AppDelegate.m */; };
 		BF3FDEFB1DC412960095C4D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3FDEF91DC412960095C4D8 /* Main.storyboard */; };
@@ -53,8 +52,6 @@
 		872EAEE34A3D7C530F6FA4DF /* libPods-untitledUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-untitledUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF26A3E81DC42A0E0058C57C /* ChildrenCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildrenCollectionViewCell.h; sourceTree = "<group>"; };
 		BF26A3E91DC42A0E0058C57C /* ChildrenCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildrenCollectionViewCell.m; sourceTree = "<group>"; };
-		BF26A3EC1DC43CE30058C57C /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
-		BF26A3ED1DC43CE30058C57C /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
 		BF3FDEED1DC412960095C4D8 /* untitled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = untitled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3FDEF11DC412960095C4D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF3FDEF31DC412960095C4D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -161,8 +158,6 @@
 				BF26A3E91DC42A0E0058C57C /* ChildrenCollectionViewCell.m */,
 				BF3FDF261DC41B100095C4D8 /* ChildDetailViewController.h */,
 				BF3FDF271DC41B100095C4D8 /* ChildDetailViewController.m */,
-				BF26A3EC1DC43CE30058C57C /* HTTPClient.h */,
-				BF26A3ED1DC43CE30058C57C /* HTTPClient.m */,
 				BF3FDEF91DC412960095C4D8 /* Main.storyboard */,
 				BF3FDEFC1DC412960095C4D8 /* Assets.xcassets */,
 				BF3FDEFE1DC412960095C4D8 /* LaunchScreen.storyboard */,
@@ -488,7 +483,6 @@
 			files = (
 				BF3FDF281DC41B100095C4D8 /* ChildDetailViewController.m in Sources */,
 				BF3FDF251DC416520095C4D8 /* ChildrenCollectionViewController.m in Sources */,
-				BF26A3EE1DC43CE30058C57C /* HTTPClient.m in Sources */,
 				BF9CED171DC4A12E0031232F /* ChildProfileViewController.m in Sources */,
 				BF26A3EA1DC42A0E0058C57C /* ChildrenCollectionViewCell.m in Sources */,
 				BF3FDEF51DC412960095C4D8 /* AppDelegate.m in Sources */,

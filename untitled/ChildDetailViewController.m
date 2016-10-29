@@ -62,7 +62,7 @@
 
 - (IBAction)recordStop:(id)sender {
     if (_player.playing) {
-        [_player stop];
+//        [_player stop];
     }
     
     if (!_recorder.recording) {
@@ -72,17 +72,17 @@
         
         // Start recording
         [_recorder record];
-//        [recordPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
         
     } else {
         NSLog(@"Stop recording..");
         // Pause recording
         [_recorder stop];
         
+        
+        
         _player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:nil];
         [_player setDelegate:self];
         [_player play];
-//        [recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
     }
 }
 
