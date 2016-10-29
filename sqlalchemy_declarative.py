@@ -17,6 +17,7 @@ class SoundRecordings(Base):
     id = Column(Integer, primary_key=True)
     child_id = Column(Integer, ForeignKey('child.id'))
     recording = Column(LargeBinary, nullable=False)
+    meaning = Column(String(256), nullable=False)
 
 engine = create_engine('sqlite:///autistic.db')
 
