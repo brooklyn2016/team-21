@@ -1,6 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, abort
 import os
 import json
+import hashlib
 
 app = Flask(__name__)
 
@@ -41,14 +42,20 @@ def meaning():
         return "This means: Apple"
     else:
         #grab name, audio
-        #getRecordings(name)
-        #for each recording in recordings:
-            #if audio == recording.audio:
-                #meaning = recording.meaning
-                #break
-        #else:
+        name = request.args['name']
+        audio = request.args['audio']
+        meaning=""
+        recordings = GetRecordings(name)
+        for each recording in recordings:
+            if audio == recording[0]:
+                meaning = recording[1]
+                break
+        else:
+            hashmd5=hashlib.md5(audio).hexdigest()
+            theList.append({'hash':hashmd5,'audio':audio})
             #return this is BS
-        return "Meaning uploaded!! :D"
+            abort('400', send_json(hashmd5))
+        return send_json(meaning)
 
 if __name__ == "__main__":
     if os.environ.get('FORCE_B_W_U') == 'None':
