@@ -7,12 +7,14 @@
 //
 
 #import "ChildDetailViewController.h"
+#import "ModalWordRetriever.h"
 
 @interface ChildDetailViewController ()
 
 @property (nonatomic, strong) AVAudioRecorder *recorder;
 @property (nonatomic, strong) AVAudioPlayer *player;
-
+@property (nonatomic, assign) BOOL readyToModal;
+@property (nonatomic, strong) ModalWordRetriever *wordRetrieverVC;
 @end
 
 @implementation ChildDetailViewController
@@ -21,6 +23,7 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
+    _readyToModal = NO;
     self.navigationItem.title = self.childInfo[@"name"];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.childInfo[@"img"]]];
@@ -52,7 +55,9 @@
     _recorder.delegate = self;
     _recorder.meteringEnabled = YES;
     [_recorder prepareToRecord];
-    [self recordStop:self];
+    
+    [session setActive:YES error:nil];
+    [_recorder record];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,11 +67,9 @@
 
 - (IBAction)recordStop:(id)sender {
     if (_player.playing) {
-//        [_player stop];
     }
     
     if (!_recorder.recording) {
-        NSLog(@"Begin recording..");
         AVAudioSession *session = [AVAudioSession sharedInstance];
         [session setActive:YES error:nil];
         
@@ -74,15 +77,25 @@
         [_recorder record];
         
     } else {
-        NSLog(@"Stop recording..");
-        // Pause recording
         [_recorder stop];
         
-        
-        
         _player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:nil];
-        [_player setDelegate:self];
-        [_player play];
+        _readyToModal = YES;
+        
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                [self performSegueWithIdentifier:@"ModalSegue" sender:self];
+    
+            });
+        });
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ModalSegue"]) {
+        _wordRetrieverVC = (ModalWordRetriever *)segue.destinationViewController;
+        _wordRetrieverVC.player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:nil];
     }
 }
 
