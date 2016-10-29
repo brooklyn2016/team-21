@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 
 #I propose this terrible list
-#it will be our "database"
+#it will be our temp 
 theList = []
 roster = [
         {'name': "Kate", 'img': "http://www.cdc.gov/ncbddd/autism/images/autism-facts-graphic2.jpg"},
@@ -30,12 +30,24 @@ def hello_world():
 def getRoster():
     return send_json(roster)#json.dumps(roster)
 
+
+#This is where the work is at
 @app.route('/meaning', methods=['GET', 'POST'])
 def meaning():
     if request.method == 'POST':
+        #grab name, audio, meaning
+        #addRecoding(name, audio.getFingerprint(), meaning)
         theList.append("banana fest")
         return "This means: Apple"
     else:
+        #grab name, audio
+        #getRecordings(name)
+        #for each recording in recordings:
+            #if audio == recording.audio:
+                #meaning = recording.meaning
+                #break
+        #else:
+            #return this is BS
         return "Meaning uploaded!! :D"
 
 if __name__ == "__main__":
