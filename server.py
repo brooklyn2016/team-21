@@ -50,8 +50,8 @@ def meaning():
     else:
         #grab name, audio
         
-        name = request.args.get('name')
-        print(':p')
+        name = request.args['name']
+        print(name)
         audio = request.files['audio']
         
         audio_name = audio.filename

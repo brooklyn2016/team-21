@@ -23,6 +23,7 @@ def AddRecording(name, recording, meaning):
     SoundRecordings.add(srecrd)
 
 def GetRecordings(name):
+    print(name)
     t = list()
     search_id = GetChildId(name)
     results = session.query(SoundRecordings).filter(search_id == SoundRecordings.id)
@@ -30,6 +31,3 @@ def GetRecordings(name):
     for result in results:
         t.append((result.recording, result.meaning))
     return t
-AddChild('Amy')
-GetChildId('Amy')
-
