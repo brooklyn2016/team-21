@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ChildrenTableViewController.h
 //  untitled
 //
 //  Created by Benjamin Yi on 10/28/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ChildrenTableViewController : UITableViewController
 
 @end
-

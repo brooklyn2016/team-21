@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		BF3FDEF21DC412960095C4D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDEF11DC412960095C4D8 /* main.m */; };
 		BF3FDEF51DC412960095C4D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDEF41DC412960095C4D8 /* AppDelegate.m */; };
-		BF3FDEF81DC412960095C4D8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDEF71DC412960095C4D8 /* ViewController.m */; };
 		BF3FDEFB1DC412960095C4D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3FDEF91DC412960095C4D8 /* Main.storyboard */; };
 		BF3FDEFD1DC412960095C4D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3FDEFC1DC412960095C4D8 /* Assets.xcassets */; };
 		BF3FDF001DC412960095C4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3FDEFE1DC412960095C4D8 /* LaunchScreen.storyboard */; };
 		BF3FDF0B1DC412960095C4D8 /* untitledTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDF0A1DC412960095C4D8 /* untitledTests.m */; };
 		BF3FDF161DC412960095C4D8 /* untitledUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDF151DC412960095C4D8 /* untitledUITests.m */; };
+		BF3FDF251DC416520095C4D8 /* ChildrenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDF241DC416520095C4D8 /* ChildrenTableViewController.m */; };
+		BF3FDF281DC41B100095C4D8 /* ChildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3FDF271DC41B100095C4D8 /* ChildDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +40,6 @@
 		BF3FDEF11DC412960095C4D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF3FDEF31DC412960095C4D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF3FDEF41DC412960095C4D8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BF3FDEF61DC412960095C4D8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BF3FDEF71DC412960095C4D8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BF3FDEFA1DC412960095C4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF3FDEFC1DC412960095C4D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF3FDEFF1DC412960095C4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +50,10 @@
 		BF3FDF111DC412960095C4D8 /* untitledUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = untitledUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3FDF151DC412960095C4D8 /* untitledUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = untitledUITests.m; sourceTree = "<group>"; };
 		BF3FDF171DC412960095C4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF3FDF231DC416520095C4D8 /* ChildrenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildrenTableViewController.h; sourceTree = "<group>"; };
+		BF3FDF241DC416520095C4D8 /* ChildrenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildrenTableViewController.m; sourceTree = "<group>"; };
+		BF3FDF261DC41B100095C4D8 /* ChildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildDetailViewController.h; sourceTree = "<group>"; };
+		BF3FDF271DC41B100095C4D8 /* ChildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +106,10 @@
 			children = (
 				BF3FDEF31DC412960095C4D8 /* AppDelegate.h */,
 				BF3FDEF41DC412960095C4D8 /* AppDelegate.m */,
-				BF3FDEF61DC412960095C4D8 /* ViewController.h */,
-				BF3FDEF71DC412960095C4D8 /* ViewController.m */,
+				BF3FDF231DC416520095C4D8 /* ChildrenTableViewController.h */,
+				BF3FDF241DC416520095C4D8 /* ChildrenTableViewController.m */,
+				BF3FDF261DC41B100095C4D8 /* ChildDetailViewController.h */,
+				BF3FDF271DC41B100095C4D8 /* ChildDetailViewController.m */,
 				BF3FDEF91DC412960095C4D8 /* Main.storyboard */,
 				BF3FDEFC1DC412960095C4D8 /* Assets.xcassets */,
 				BF3FDEFE1DC412960095C4D8 /* LaunchScreen.storyboard */,
@@ -270,7 +275,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF3FDEF81DC412960095C4D8 /* ViewController.m in Sources */,
+				BF3FDF281DC41B100095C4D8 /* ChildDetailViewController.m in Sources */,
+				BF3FDF251DC416520095C4D8 /* ChildrenTableViewController.m in Sources */,
 				BF3FDEF51DC412960095C4D8 /* AppDelegate.m in Sources */,
 				BF3FDEF21DC412960095C4D8 /* main.m in Sources */,
 			);
